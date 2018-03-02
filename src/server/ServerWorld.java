@@ -43,13 +43,13 @@ public class ServerWorld extends World implements ActorID
     @Override
     public void act()
     {
-       // System.out.println("MouseAt: "+Mayflower.getMouseInfo().getX()+", "+Mayflower.getMouseInfo().getY());
-        System.out.println("test");
+        //System.out.println("MouseAt: "+Mayflower.getMouseInfo().getX()+", "+Mayflower.getMouseInfo().getY());
+        //System.out.println("test");
 
         if(timer.isDone())
         {
             if(getObjects(Asteroid.class).size()<5) {
-                addObject(new Asteroid(), Mayflower.getRandomNumber(1016), -150);
+                addObject(new Asteroid(), Mayflower.getRandomNumber(1017), -150);
 
             }
 

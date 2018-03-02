@@ -19,7 +19,7 @@ public class Asteroid extends SpaceActor
         setImage("img/largeAsteroid.png");
         //setLocation(Mayflower.getRandomNumber(1200)-100,Mayflower.getRandomNumber(716)-75);
 
-        turnTowards(Mayflower.getRandomNumber(1016)-50,Mayflower.getRandomNumber(716)-75);
+        turnTowards(Mayflower.getRandomNumber(1016)-50,Mayflower.getRandomNumber(716));
 
 
 
