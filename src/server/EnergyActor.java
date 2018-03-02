@@ -15,4 +15,9 @@ public class EnergyActor extends SpaceActor implements ActorID {
     public int getEnergy() {
         return energy;
     }
+
+    @Override
+    public String toString() {
+        return "energy" + "," + getX() + "," + getY() + "," + getEnergy();
+    }
 }

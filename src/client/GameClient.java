@@ -49,13 +49,25 @@ public class GameClient extends Client implements GameMode, ActorID
         for (String part: parts) {
             if (!"".equals(part) ) {
 
+                int x=0;
+                int y=0;
+                int r=0;
+                double v=0;
+                int ID=0;
+
                 ArrayList<String> parts2 = new ArrayList<>(Arrays.asList(part.split(",")));
                 String img = "img/" + parts2.get(0) + ".png";
-                int x = Integer.parseInt(parts2.get(1));
-                int y = Integer.parseInt(parts2.get(2));
-                int r = Integer.parseInt(parts2.get(3));
-                double v = Double.parseDouble(parts2.get(4));
-                int ID=0;
+                if(parts2.size()>1)
+                x = Integer.parseInt(parts2.get(1));
+                if(parts2.size()>2)
+                y = Integer.parseInt(parts2.get(2));
+                if(parts2.size()>3)
+                r = Integer.parseInt(parts2.get(3));
+
+                if(parts2.size()>4)
+                v = Double.parseDouble(parts2.get(4));
+
+
 
                 if(parts2.size()>5)
                     ID = Integer.parseInt(parts2.get(5));
@@ -74,7 +86,9 @@ public class GameClient extends Client implements GameMode, ActorID
                         break;
                     case "laser":
                         actors.add(new Laser(x,y,r));
-                        //System.out.println(x+":"+y+":"+r);
+                        break;
+                    case "energy":
+                        actors.add(new EnergyActor(x,y,r));
                         break;
 
                 }
