@@ -9,5 +9,5 @@ public interface ActorID {
     Map<Integer, SpaceActor> actors = new HashMap<Integer, SpaceActor>();
     Map<Integer, Ship> ships = new HashMap<Integer, Ship>();
     String currPosition = "";
-
+    int energy=0;
 }

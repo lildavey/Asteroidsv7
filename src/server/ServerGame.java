@@ -81,6 +81,13 @@ public class ServerGame extends Mayflower implements ActorID
             actors.put(i, gunnerActor);
             ships.get(i-1).setGunner(gunnerActor);
         }
+        if(i%3 == 0 && i!=0) {
+            SpaceActor energyActor = new server.EnergyActor(5);
+            world.addObject(energyActor, actors.get(i-1).getX(), actors.get(i-1).getY());
+
+            actors.put(i, energyActor);
+            ships.get(i-2).setEnergyActor(energyActor);
+        }
 
 
         //world.addObject(new server.Asteroid(0,10),(int) (Math.random() * 700) + 50,(int) (Math.random() * 500) + 50);

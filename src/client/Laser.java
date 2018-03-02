@@ -4,9 +4,10 @@ import mayflower.Actor;
 
 public class Laser extends Actor {
     public Laser(int x, int y, int rotation) {
-        setLocation(x,y);
         setImage("img/laser.png");
         setRotation(rotation);
+        setLocation(x,y);
+
     }
     public void tick()
     {

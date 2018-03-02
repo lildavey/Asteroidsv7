@@ -6,6 +6,7 @@ public class Ship extends SpaceActor{
 
     private server.spaceshipActor pilot;
     private server.GunnerActor gunner;
+    private server.EnergyActor energyActor;
 
     public Ship() {
 
@@ -30,6 +31,13 @@ public class Ship extends SpaceActor{
         this.gunner = (server.GunnerActor) gunner;
     }
 
+    public EnergyActor getEnergyActor() {
+        return energyActor;
+    }
+
+    public void setEnergyActor(SpaceActor energyActor) {
+        this.energyActor = (server.EnergyActor)energyActor;
+    }
 
     @Override
     public void act() {
@@ -46,7 +54,7 @@ public class Ship extends SpaceActor{
     public String toString() {
         return "ship" + "," + getX() + "," + getY() + "," + pilot.getRotation()+ "," + pilot.getVelocity()+ "," + gunner.getRotation();
     }
-    private class spaceshipActor extends SpaceActor {
+    /*private class spaceshipActor extends SpaceActor {
 
         private int x,y,r,maxV, ID;
         private double velocity;
@@ -70,9 +78,9 @@ public class Ship extends SpaceActor{
             return ID;
         }
 
-        /**
+        *//**
          * ie Acceleration
-         */
+         *//*
         public void addVelocity()
         {
             if(velocity <maxV){
@@ -81,9 +89,9 @@ public class Ship extends SpaceActor{
             }
         }
 
-        /**
+        *//**
          * ie Deceleration
-         */
+         *//*
         public void removeVelocity()
         {
             if(velocity >0){
@@ -150,7 +158,7 @@ public class Ship extends SpaceActor{
         public String toString() {
             return "gunner,"+getX()+","+getY()+","+getRotation()+","+getVelocity();
         }
-    }
+    }*/
 
 
 }

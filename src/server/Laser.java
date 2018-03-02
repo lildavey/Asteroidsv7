@@ -3,7 +3,7 @@ package server;
 
 public class Laser extends SpaceActor {
     public Laser(int x, int y, int rotation) {
-        setLocation(x,y);
+//        setLocation(x,y);
         setImage("img/laser.png");
         setRotation(rotation);
     }

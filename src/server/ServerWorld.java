@@ -48,31 +48,17 @@ public class ServerWorld extends World implements ActorID
 
         if(timer.isDone())
         {
-            if(getObjects(Asteroid.class).size()<5) {
+            /*if(getObjects(Asteroid.class).size()<5) {
                 addObject(new Asteroid(), Mayflower.getRandomNumber(1017), -150);
-
-            }
-
+            }*/
             List<SpaceActor> actors = getObjects(SpaceActor.class);
-
-
             for(SpaceActor actor : actors)
             {
-
-
-
                if((actor.getX()<-200)||(actor.getX()>1200)||(actor.getY()<-200)||(actor.getY()>900))removeObject(actor);
-
-
-
-
                 actor.tick();
                 //System.out.println("actors.size() = " + actors.size());
                 //System.out.println("toString() = " + toString());
-
-
             }
-
             timer.reset();
             if(null != server)
             {
