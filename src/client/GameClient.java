@@ -74,7 +74,7 @@ public class GameClient extends Client implements GameMode, ActorID
                         break;
                     case "laser":
                         actors.add(new Laser(x,y,r));
-                        System.out.println(x+":"+y+":"+r);
+                        //System.out.println(x+":"+y+":"+r);
                         break;
 
                 }
