@@ -49,9 +49,9 @@ public class InputManager
         {
             if(Mayflower.isKeyDown(key))
             {
-                System.out.println("Key Pressed: " + key);
+                //System.out.println("Key Pressed: " + key);
                 lastKey =key;
-                mode.processPress(keyMap.get(key));
+                mode.processKey(keyMap.get(key)+"Pressed");
                 //System.out.println("lastKey = " + lastKey);
                 
             }
@@ -59,7 +59,7 @@ public class InputManager
             {
 
                 //System.out.println("Key Released: " + lastKey);
-                mode.processRelease(keyMap.get(lastKey));
+                mode.processKey(keyMap.get(lastKey)+"Released");
 
             }
             //System.out.println("Mayflower.isKeyDown(lastKey) = " + Mayflower.isKeyDown(lastKey));

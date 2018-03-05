@@ -12,11 +12,15 @@ public class SpaceActor extends Actor
     private double Xvelocity, Yvelocity = 2;
     private double testVelocity;
 
+    public boolean turnLeft, turnRight = false;
+
+    public String lastAction="";
+
 
     /**
      * Interval between shots
      */
-    private Timer timer = new Timer((int)(.25*Math.pow(10,(9))));
+
 
 
     public SpaceActor(String img, int x, int y, int r)
@@ -65,15 +69,9 @@ public class SpaceActor extends Actor
 
 
 
-    public void fireLaser()
-    {
 
 
-        if(timer.isDone()) {
-            getWorld().addObject(new Laser(getX(), getY(), getRotation()), getX(), getY());
-            timer.reset();
-        }
-    }
+
 
 
     public void warp()
@@ -127,6 +125,8 @@ public class SpaceActor extends Actor
 
     public void tick(){
         warp();
+        if(turnLeft)turn(-5);
+        if(turnRight)turn(5);
     }
 }
 
