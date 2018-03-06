@@ -55,7 +55,7 @@ public class InputManager
                 //System.out.println("lastKey = " + lastKey);
                 
             }
-            else if(!Mayflower.isKeyDown(lastKey))
+            if(!Mayflower.isKeyDown(lastKey))
             {
 
                 //System.out.println("Key Released: " + lastKey);

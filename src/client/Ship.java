@@ -1,45 +1,25 @@
-package server;
+package client;
 
-import mayflower.Actor;
+import server.EnergyActor;
+import server.SpaceActor;
 
 public class Ship extends SpaceActor{
 
-    private server.spaceshipActor pilot;
-    private server.GunnerActor gunner;
-    private server.EnergyActor energyActor;
+    private client.spaceshipActor pilot;
+    private client.GunnerActor gunner;
+    private client.EnergyActor energyActor;
 
     public Ship() {
-        setImage("img/laser.png");
-        setLocation(0,0);
+        setImage("img/blank.png");
     }
 
+    public Ship(int xCoord, int yCoord, int pilotRotation, int gunnerRotation, int energy)
+    {
+        new spaceshipActor(xCoord,yCoord, pilotRotation);
+        new GunnerActor(xCoord,yCoord,gunnerRotation);
+        new EnergyActor(energy);
 
-    public server.spaceshipActor getPilot() {
-        return pilot;
     }
-
-    public void setPilot(SpaceActor pilot) {
-        this.pilot = (server.spaceshipActor) pilot;
-    }
-
-    public server.GunnerActor getGunner() {
-        return gunner;
-    }
-
-    public void setGunner(SpaceActor gunner) {
-        this.gunner = (server.GunnerActor) gunner;
-    }
-
-    public EnergyActor getEnergyActor() {
-        return energyActor;
-    }
-
-    public void setEnergyActor(SpaceActor energyActor) {
-        this.energyActor = (server.EnergyActor)energyActor;
-    }
-
-
-
 
     @Override
     public void act() {
@@ -54,7 +34,7 @@ public class Ship extends SpaceActor{
      */
     @Override
     public String toString() {
-        return "ship" + "," + getX() + "," + getY() + "," + 0+ "," + 0+","+0;
+        return "ship" + "," + getX() + "," + getY() + "," + pilot.getRotation()+ ","  + gunner.getRotation()+","+energyActor.getEnergy();
     }
     /*private class spaceshipActor extends SpaceActor {
 

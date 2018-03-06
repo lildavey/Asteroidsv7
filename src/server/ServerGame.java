@@ -53,17 +53,15 @@ public class ServerGame extends Mayflower implements ActorID {
                 if (s.equals("rightReleased")) actor.turnRight = false;
 
                 if (actor instanceof server.GunnerActor) {
-                    if (s.equals("shootPressed"))
-                        ((server.GunnerActor) actor).fire = true;
-                    if (s.equals("shootReleased"))
-                        ((server.GunnerActor) actor).fire = true;
+                    if (s.equals("shootPressed")) ((server.GunnerActor) actor).fire = true;
+                    if (s.equals("shootReleased")) ((server.GunnerActor) actor).fire = false;
                 }
             }
-            /*else if (actor instanceof server.EnergyActor) {
+            else if (actor instanceof server.EnergyActor) {
 
                 if (s.equals("leftPressed")) ((EnergyActor) actor).subtractEnergy();
                 if (s.equals("rightPressed")) ((EnergyActor) actor).addEnergy();
-            }*/
+            }
             actor.lastAction = s;
 
         }
@@ -80,14 +78,15 @@ public class ServerGame extends Mayflower implements ActorID {
             Ship ship = new server.Ship();
             ships.put(i, ship);
 
+
             SpaceActor pilot = new spaceshipActor(x, y, 0, 0, i);
             world.addObject(pilot, x, y);
 
             actors.put(i, pilot);
             ships.get(i).setPilot(pilot);
 
-/*
-            SpaceActor energyActor = new server.EnergyActor(5);
+
+ /*           SpaceActor energyActor = new server.EnergyActor(5);
             world.addObject(energyActor, 20, 50);
 
             actors.put(i, energyActor);

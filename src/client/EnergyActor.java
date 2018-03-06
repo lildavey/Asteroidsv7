@@ -6,14 +6,14 @@ import server.SpaceActor;
 
 public class EnergyActor extends SpaceActor implements ActorID {
     private int energy;
-    public EnergyActor(int x,int y, int e) {
+    public EnergyActor(int e) {
         energy=e;
 
         MayflowerImage img = new MayflowerImage("img/energy"+e+".png");
 
         setImage(img);
 
-        setLocation(x,y);
+        setLocation(20,600);
     }
 
 

@@ -36,7 +36,7 @@ public class GameClient extends Client implements GameMode, ActorID {
      */
     @Override
     public void process(String s) {
-        if (s.equals(tempProcess)) return;
+        //if (s.equals(tempProcess)) return;
         //System.out.println("Message From Server: " + s);
 
         List<Actor> actors = new LinkedList<Actor>();
@@ -83,8 +83,12 @@ public class GameClient extends Client implements GameMode, ActorID {
                         actors.add(new Laser(x, y, r));
                         break;
                     case "energy":
-                        actors.add(new EnergyActor(x, y, r));
+                        actors.add(new EnergyActor(x));
                         break;
+                    /*case "ship":
+                        actors.add( new Ship( Integer.parseInt(parts2.get(1)) , Integer.parseInt(parts2.get(2)) , Integer.parseInt(parts2.get(3)) , Integer.parseInt(parts2.get(4)) ,  Integer.parseInt(parts2.get(5)) ) );
+                        break;*/
+
 
                 }
             }

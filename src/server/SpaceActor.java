@@ -4,24 +4,18 @@ import mayflower.Actor;
 
 import mayflower.Timer;
 
+// TODO: 3/5/2018 unlink rotation and velocity
 public class SpaceActor extends Actor
 {
     private double velocity, maxV;
 
     private double acceleration, deceleration =0;
     private double Xvelocity, Yvelocity = 2;
-    private double testVelocity;
+
 
     public boolean turnLeft, turnRight = false;
 
     public String lastAction="";
-
-
-    /**
-     * Interval between shots
-     */
-
-
 
     public SpaceActor(String img, int x, int y, int r)
     {

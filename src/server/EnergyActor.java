@@ -18,19 +18,23 @@ public class EnergyActor extends SpaceActor implements ActorID {
 
     public void addEnergy()
     {
-        energy++;
-        setImage("img/energy"+energy+".png");
+        if(energy<5) {
+            energy++;
+            setImage("img/energy" + energy + ".png");
+        }
     }
     public void subtractEnergy()
     {
-        energy--;
-        setImage("img/energy"+energy+".png");
+        if(energy>0) {
+            energy--;
+            setImage("img/energy" + energy + ".png");
+        }
     }
 
     @Override
     public String toString() {
 
 
-        return "energy" + "," + 20 + "," + 50 + "," + getEnergy();
+        return "energy" + ","  + getEnergy();
     }
 }
