@@ -29,13 +29,13 @@ public class ServerWorld extends World implements ActorID
     public void addObject(Actor a, int x, int y)
     {
         super.addObject(a, x, y);
-        System.out.println("Adding: "+ a + " to " + x +", " + y);
+        //System.out.println("Adding: "+ a + " to " + x +", " + y);
     }
 
     @Override
     public void removeObject(Actor a)
     {
-        System.out.println("Removing: "+ a + " at " + a.getX() +", " + a.getY());
+        System.out.println("Removing: "+ a + " ID: " + " at " + a.getX() +", " + a.getY());
         super.removeObject(a);
 
     }
@@ -48,17 +48,24 @@ public class ServerWorld extends World implements ActorID
 
         if(timer.isDone())
         {
-            /*if(getObjects(Asteroid.class).size()<5) {
+
+            if(getObjects(Asteroid.class).size()<5) {
                 addObject(new Asteroid(), Mayflower.getRandomNumber(1017), -150);
-            }*/
+            }
+
             List<SpaceActor> actors = getObjects(SpaceActor.class);
             for(SpaceActor actor : actors)
             {
                if((actor.getX()<-200)||(actor.getX()>1200)||(actor.getY()<-200)||(actor.getY()>900))removeObject(actor);
                 actor.tick();
                 //System.out.println("actors.size() = " + actors.size());
+                //if(actor instanceof Ship) System.out.println("actor.toString() = " + actor.toString());
+
                 //System.out.println("toString() = " + toString());
             }
+
+
+
             timer.reset();
             if(null != server)
             {
@@ -74,7 +81,14 @@ public class ServerWorld extends World implements ActorID
         List<SpaceActor> actors = getObjects(SpaceActor.class);
         for(Actor actor : actors)
         {
+            if(actor instanceof Laser || actor instanceof Asteroid)
             str += actor.toString() + ":";
+
+        }
+
+        for (Ship ship :
+                ships.values()) {
+            str += ship.toString() + ":";
         }
 
         return str;

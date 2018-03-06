@@ -16,6 +16,7 @@ public class spaceshipActor extends SpaceActor {
         this.ID = ID;
 
     }
+    public spaceshipActor(){setImage("img/spaceship.png");}
 
     public void setID(int ID) {
         this.ID = ID;

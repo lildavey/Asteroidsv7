@@ -13,6 +13,7 @@ public class GunnerActor extends SpaceActor implements ActorID {
         this.ship = ship;
 
     }
+    public GunnerActor(){setImage("img/laserCannon.png");}
 
     public void fireLaser()
     {

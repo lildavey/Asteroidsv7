@@ -56,14 +56,14 @@ public class ServerGame extends Mayflower implements ActorID {
                     if (s.equals("shootPressed"))
                         ((server.GunnerActor) actor).fire = true;
                     if (s.equals("shootReleased"))
-                        ((server.GunnerActor) actor).fire = true;
+                        ((server.GunnerActor) actor).fire = false;
                 }
             }
-            /*else if (actor instanceof server.EnergyActor) {
+            else if (actor instanceof server.EnergyActor) {
 
                 if (s.equals("leftPressed")) ((EnergyActor) actor).subtractEnergy();
                 if (s.equals("rightPressed")) ((EnergyActor) actor).addEnergy();
-            }*/
+            }
             actor.lastAction = s;
 
         }

@@ -10,10 +10,9 @@ public class Laser extends SpaceActor {
     public void tick()
     {
         move(5);
-        /*for (SpaceActor actor:getIntersectingObjects(Asteroid.class)) {
-            getWorld().removeObject(actor);
-            //System.out.println("kill: "+actor);
-        }*/
+        for (SpaceActor actor:getWorld().getObjects(Asteroid.class)) {
+            if(this.intersects(actor)) getWorld().removeObject(this);
+        }
     }
 
     public String toString() {

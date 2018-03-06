@@ -9,9 +9,9 @@ public class Ship extends SpaceActor{
     private server.EnergyActor energyActor;
 
     public Ship() {
-
-
-
+        setPilot(new spaceshipActor());
+        setGunner(new GunnerActor());
+        setEnergyActor(new EnergyActor(5));
     }
 
 
@@ -52,8 +52,9 @@ public class Ship extends SpaceActor{
      */
     @Override
     public String toString() {
-        return "ship" + "," + getX() + "," + getY() + "," + pilot.getRotation()+ "," + pilot.getVelocity()+ "," + gunner.getRotation();
+        return "ship" + "," + pilot.getX() + "," + pilot.getY() + "," + pilot.getRotation()+ "," + gunner.getRotation()+","+energyActor.getEnergy();
     }
+
     /*private class spaceshipActor extends SpaceActor {
 
         private int x,y,r,maxV, ID;

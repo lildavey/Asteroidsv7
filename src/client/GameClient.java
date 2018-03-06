@@ -30,68 +30,76 @@ public class GameClient extends Client implements GameMode, ActorID {
     }
 
     /**
-     * TODO fix efficiency
+     * TODO move instead of remove
+     * TODO add IDs to every actor
      *
      * @param s
      */
     @Override
     public void process(String s) {
-        if (s.equals(tempProcess)) return;
-        //System.out.println("Message From Server: " + s);
+        if (!s.equals(tempProcess)) {
+            System.out.println("Message From Server: " + s);
 
-        List<Actor> actors = new LinkedList<Actor>();
-        ArrayList<String> parts = new ArrayList<>(Arrays.asList(s.split(":")));
-        //System.out.println("parts.size() = " + parts.size());
+            List<Actor> actors = new LinkedList<Actor>();
+            ArrayList<String> parts = new ArrayList<>(Arrays.asList(s.split(":")));
+            //System.out.println("parts.size() = " + parts.size());
 
-        for (String part : parts) {
-            if (!"".equals(part)) {
+            for (String part : parts) {
+                if (!"".equals(part)) {
 
-                int x = 0;
-                int y = 0;
-                int r = 0;
-                double v = 0;
-                int ID = 0;
+                    int x = 0;
+                    int y = 0;
+                    int r = 0;
+                    double v = 0;
+                    int ID = 0;
 
-                ArrayList<String> parts2 = new ArrayList<>(Arrays.asList(part.split(",")));
-                String img = "img/" + parts2.get(0) + ".png";
-                if (parts2.size() > 1)
-                    x = Integer.parseInt(parts2.get(1));
-                if (parts2.size() > 2)
-                    y = Integer.parseInt(parts2.get(2));
-                if (parts2.size() > 3)
-                    r = Integer.parseInt(parts2.get(3));
+                    ArrayList<String> parts2 = new ArrayList<>(Arrays.asList(part.split(",")));
+                    String img = "img/" + parts2.get(0) + ".png";
+                    if (parts2.size() > 1)
+                        x = Integer.parseInt(parts2.get(1));
+                    if (parts2.size() > 2)
+                        y = Integer.parseInt(parts2.get(2));
+                    if (parts2.size() > 3)
+                        r = Integer.parseInt(parts2.get(3));
 
-                if (parts2.size() > 4)
-                    v = Double.parseDouble(parts2.get(4));
-
-
-                if (parts2.size() > 5)
-                    ID = Integer.parseInt(parts2.get(5));
+                    if (parts2.size() > 4)
+                        v = Double.parseDouble(parts2.get(4));
 
 
-                switch (parts2.get(0)) {
-                    case "spaceship":
+                    if (parts2.size() > 5)
+                        ID = Integer.parseInt(parts2.get(5));
+
+
+                    switch (parts2.get(0)) {
+                    /*case "spaceship":
                         actors.add(new spaceshipActor(x, y, r, (int) v));
-                        break;
-                    case "asteroid":
-                        actors.add(new Asteroid(x, y, r, (int) v));
                         break;
                     case "gunner":
                         actors.add(new GunnerActor(x, y, r, v, (server.spaceshipActor) ActorID.actors.get(ID)));
                         break;
-                    case "laser":
-                        actors.add(new Laser(x, y, r));
-                        break;
                     case "energy":
                         actors.add(new EnergyActor(x, y, r));
-                        break;
+                        break;*/
+                        case "asteroid":
+                            actors.add(new Asteroid(x, y, r, (int) v));
+                            break;
+                        case "laser":
+                            actors.add(new Laser(x, y, r));
+                            break;
+                        case "ship":
+                            actors.add(new spaceshipActor(x, y, r));
+                            actors.add(new client.GunnerActor(x, y, Integer.parseInt(parts2.get(4))));
+                            actors.add(new EnergyActor(Integer.parseInt(parts2.get(5))));
+                            break;
 
+
+                    }
                 }
-            }
 
-        }
-        if (null != world) {
-            world.update(actors);
+            }
+            if (null != world) {
+                world.update(actors);
+            }
         }
         tempProcess = s;
 

@@ -1,11 +1,17 @@
 package client;
 
-public class GunnerActor extends SpaceActor {
-    private server.spaceshipActor ship;
+import mayflower.Actor;
 
-    public GunnerActor(int x, int y, int r, double v, server.spaceshipActor ship) {
-        super("img/laserCannon.png", x, y, r);
-        this.ship = ship;
+public class GunnerActor extends Actor {
+
+    public GunnerActor(int x, int y, int r) {
+        setImage("img/laserCannon.png");
+        setLocation(x,y);
+        setRotation(r);
+    }
+
+    @Override
+    public void act() {
 
     }
 }
